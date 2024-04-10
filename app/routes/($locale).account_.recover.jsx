@@ -48,61 +48,63 @@ export default function Recover() {
   const action = useActionData();
 
   return (
-    <div className="account-recover">
-      <div>
-        {action?.resetRequested ? (
-          <>
-            <h1>Request Sent.</h1>
-            <p>
-              If that email address is in our system, you will receive an email
-              with instructions about how to reset your password in a few
-              minutes.
-            </p>
-            <br />
-            <Link to="/account/login">Return to Login</Link>
-          </>
-        ) : (
-          <>
-            <h1>Forgot Password.</h1>
-            <p>
-              Enter the email address associated with your account to receive a
-              link to reset your password.
-            </p>
-            <br />
-            <Form method="POST">
-              <fieldset>
-                <label htmlFor="email">Email</label>
-                <input
-                  aria-label="Email address"
-                  autoComplete="email"
-                  // eslint-disable-next-line jsx-a11y/no-autofocus
-                  autoFocus
-                  id="email"
-                  name="email"
-                  placeholder="Email address"
-                  required
-                  type="email"
-                />
-              </fieldset>
-              {action?.error ? (
-                <p>
-                  <mark>
-                    <small>{action.error}</small>
-                  </mark>
-                </p>
-              ) : (
-                <br />
-              )}
-              <button type="submit">Request Reset Link</button>
-            </Form>
-            <div>
-              <br />
+    <div className="flex justify-center">
+      <div className="account-recover max-w-96 bg-gray-200 p-8 rounded-xl">
+        <div>
+          {action?.resetRequested ? (
+            <>
+              <h1>Request Sent.</h1>
               <p>
-                <Link to="/account/login">Login →</Link>
+                If that email address is in our system, you will receive an
+                email with instructions about how to reset your password in a
+                few minutes.
               </p>
-            </div>
-          </>
-        )}
+              <br />
+              <Link to="/account/login">Return to Login</Link>
+            </>
+          ) : (
+            <>
+              <h1>Forgot Password.</h1>
+              <p>
+                Enter the email address associated with your account to receive
+                a link to reset your password.
+              </p>
+              <br />
+              <Form method="POST">
+                <fieldset>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    aria-label="Email address"
+                    autoComplete="email"
+                    // eslint-disable-next-line jsx-a11y/no-autofocus
+                    autoFocus
+                    id="email"
+                    name="email"
+                    placeholder="Email address"
+                    required
+                    type="email"
+                  />
+                </fieldset>
+                {action?.error ? (
+                  <p>
+                    <mark>
+                      <small>{action.error}</small>
+                    </mark>
+                  </p>
+                ) : (
+                  <br />
+                )}
+                <button type="submit">Request Reset Link</button>
+              </Form>
+              <div>
+                <br />
+                <p>
+                  <Link to="/account/login">Login →</Link>
+                </p>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

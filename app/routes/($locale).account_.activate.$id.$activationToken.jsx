@@ -89,52 +89,54 @@ export default function Activate() {
   const error = action?.error ?? null;
 
   return (
-    <div className="account-activate">
-      <h1>Activate Account.</h1>
-      <p>Create your password to activate your account.</p>
-      <Form method="POST">
-        <fieldset>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            placeholder="Password"
-            aria-label="Password"
-            minLength={8}
-            required
-            // eslint-disable-next-line jsx-a11y/no-autofocus
-            autoFocus
-          />
-          <label htmlFor="passwordConfirm">Re-enter password</label>
-          <input
-            id="passwordConfirm"
-            name="passwordConfirm"
-            type="password"
-            autoComplete="current-password"
-            placeholder="Re-enter password"
-            aria-label="Re-enter password"
-            minLength={8}
-            required
-          />
-        </fieldset>
-        {error ? (
-          <p>
-            <mark>
-              <small>{error}</small>
-            </mark>
-          </p>
-        ) : (
-          <br />
-        )}
-        <button
-          className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full"
-          type="submit"
-        >
-          Save
-        </button>
-      </Form>
+    <div className="flex justify-center">
+      <div className="account-activate bg-gray-200 p-8 rounded-xl">
+        <h1>Activate Account.</h1>
+        <p>Create your password to activate your account.</p>
+        <Form method="POST">
+          <fieldset>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              placeholder="Password"
+              aria-label="Password"
+              minLength={8}
+              required
+              // eslint-disable-next-line jsx-a11y/no-autofocus
+              autoFocus
+            />
+            <label htmlFor="passwordConfirm">Re-enter password</label>
+            <input
+              id="passwordConfirm"
+              name="passwordConfirm"
+              type="password"
+              autoComplete="current-password"
+              placeholder="Re-enter password"
+              aria-label="Re-enter password"
+              minLength={8}
+              required
+            />
+          </fieldset>
+          {error ? (
+            <p>
+              <mark>
+                <small>{error}</small>
+              </mark>
+            </p>
+          ) : (
+            <br />
+          )}
+          <button
+            className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full"
+            type="submit"
+          >
+            Save
+          </button>
+        </Form>
+      </div>
     </div>
   );
 }
