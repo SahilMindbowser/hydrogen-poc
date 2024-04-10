@@ -6,4 +6,19 @@
   h1 {
     @apply text-2xl font-semibold text-black;
   }
+
+  button {
+    @apply text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2;
+  }
+
+  button,
+  [type=submit] {
+    @apply text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 mb-2;
+  }
+}
+
+@layer components {
+  .btn-secondary {
+    @apply text-black bg-transparent hover:bg-transparent border border-black font-medium rounded-lg text-sm;
+  }
 }
