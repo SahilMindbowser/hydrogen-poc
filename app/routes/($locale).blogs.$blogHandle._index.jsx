@@ -85,7 +85,7 @@ function ArticleItem({article, loading}) {
     day: 'numeric',
   }).format(new Date(article.publishedAt));
   return (
-    <div className="blog-article" key={article.id}>
+    <div className="blog-article p-4 bg-slate-200 rounded-md" key={article.id}>
       <Link to={`/blogs/${article.blog.handle}/${article.handle}`}>
         {article.image && (
           <div className="blog-article-image">
@@ -99,8 +99,9 @@ function ArticleItem({article, loading}) {
           </div>
         )}
         <h3>{article.title}</h3>
-        <small>{publishedAt}</small>
       </Link>
+      <small>{publishedAt}</small>
+      <p>{article.excerpt}</p>
     </div>
   );
 }
@@ -145,6 +146,7 @@ const BLOGS_QUERY = `#graphql
     author: authorV2 {
       name
     }
+    excerpt
     contentHtml
     handle
     id
