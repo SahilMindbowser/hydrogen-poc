@@ -67,51 +67,53 @@ export default function Reset() {
   const action = useActionData();
 
   return (
-    <div className="account-reset">
-      <h1>Reset Password.</h1>
-      <p>Enter a new password for your account.</p>
-      <Form method="POST">
-        <fieldset>
-          <label htmlFor="password">Password</label>
-          <input
-            aria-label="Password"
-            autoComplete="current-password"
-            // eslint-disable-next-line jsx-a11y/no-autofocus
-            autoFocus
-            id="password"
-            minLength={8}
-            name="password"
-            placeholder="Password"
-            required
-            type="password"
-          />
-          <label htmlFor="passwordConfirm">Re-enter password</label>
-          <input
-            aria-label="Re-enter password"
-            autoComplete="current-password"
-            id="passwordConfirm"
-            minLength={8}
-            name="passwordConfirm"
-            placeholder="Re-enter password"
-            required
-            type="password"
-          />
-        </fieldset>
-        {action?.error ? (
-          <p>
-            <mark>
-              <small>{action.error}</small>
-            </mark>
-          </p>
-        ) : (
-          <br />
-        )}
-        <button type="submit">Reset</button>
-      </Form>
-      <br />
-      <p>
-        <a href="/account/login">Back to login →</a>
-      </p>
+    <div className="flex justify-center">
+      <div className="account-reset bg-gray-200 p-8 rounded-xl">
+        <h1>Reset Password.</h1>
+        <p>Enter a new password for your account.</p>
+        <Form method="POST">
+          <fieldset>
+            <label htmlFor="password">Password</label>
+            <input
+              aria-label="Password"
+              autoComplete="current-password"
+              // eslint-disable-next-line jsx-a11y/no-autofocus
+              autoFocus
+              id="password"
+              minLength={8}
+              name="password"
+              placeholder="Password"
+              required
+              type="password"
+            />
+            <label htmlFor="passwordConfirm">Re-enter password</label>
+            <input
+              aria-label="Re-enter password"
+              autoComplete="current-password"
+              id="passwordConfirm"
+              minLength={8}
+              name="passwordConfirm"
+              placeholder="Re-enter password"
+              required
+              type="password"
+            />
+          </fieldset>
+          {action?.error ? (
+            <p>
+              <mark>
+                <small>{action.error}</small>
+              </mark>
+            </p>
+          ) : (
+            <br />
+          )}
+          <button type="submit">Reset</button>
+        </Form>
+        <br />
+        <p>
+          <a href="/account/login">Back to login →</a>
+        </p>
+      </div>
     </div>
   );
 }

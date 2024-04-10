@@ -108,11 +108,13 @@ function AccountLayout({customer, children}) {
     : 'Account Details';
 
   return (
-    <div className="account">
-      <h1>{heading}</h1>
-      <br />
-      <AccountMenu />
-      {children}
+    <div className="flex justify-center">
+      <div className="account">
+        <h1>{heading}</h1>
+        <br />
+        <AccountMenu />
+        {children}
+      </div>
     </div>
   );
 }
@@ -126,7 +128,7 @@ function AccountMenu() {
   }
 
   return (
-    <nav role="navigation">
+    <nav role="navigation" className="bg-gray-200 p-4 rounded-md">
       <NavLink to="/account/orders" style={isActiveStyle}>
         Orders &nbsp;
       </NavLink>

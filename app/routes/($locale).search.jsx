@@ -55,14 +55,16 @@ export default function SearchPage() {
   const {searchTerm, searchResults} = useLoaderData();
 
   return (
-    <div className="search">
-      <h1>Search</h1>
-      <SearchForm searchTerm={searchTerm} />
-      {!searchTerm || !searchResults.totalResults ? (
-        <NoSearchResults />
-      ) : (
-        <SearchResults results={searchResults.results} />
-      )}
+    <div className="flex justify-center">
+      <div className="search bg-gray-200 p-8 rounded-xl">
+        <h1>Search</h1>
+        <SearchForm searchTerm={searchTerm} />
+        {!searchTerm || !searchResults.totalResults ? (
+          <NoSearchResults />
+        ) : (
+          <SearchResults results={searchResults.results} />
+        )}
+      </div>
     </div>
   );
 }
